@@ -1,12 +1,5 @@
 # Ausy POEI : BankManager C++
 
-<a href="https://img.shields.io/badge/C++-20-00427E" alt="Python">
-        <img src="https://img.shields.io/badge/C++-20-00427E" /></a>
-<a href="https://img.shields.io/badge/CMake-3.16.3-BF2029" alt="NPM">
-        <img src="https://img.shields.io/badge/CMake-3.16.3-BF2029" /></a>
-
----
-
 Program who can manage a bank account in C++ using **Inherence**, **Aggregation** and **Composition**
 
 ## Mandatories
