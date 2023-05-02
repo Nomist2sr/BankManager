@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//Implémentation pour la classe Actor
+//Implï¿½mentation pour la classe Actor
 
 //CONSTRUCTEUR
 
@@ -55,4 +55,3 @@ void Actor::setAdress(string adress) const
 {
 	this->adress = adress;
 }
-

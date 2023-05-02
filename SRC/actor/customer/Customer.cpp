@@ -4,9 +4,8 @@
 
 using namespace std;
 
-//Implémentation de la classe customer
+//Implï¿½mentation de la classe customer
 
 Customer::Customer(string name, string firstname, string adress) :Actor(name, firstname, adress) {};
 
 Customer::~Customer() {};
-
