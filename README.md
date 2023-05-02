@@ -3,3 +3,4 @@ Program who can manage a bank account in C++ using Inherence / Aggregation / Com
 
 Authors:
 Joachim DE SOUSA PEIXEIRA
+Guillaume BISSON
