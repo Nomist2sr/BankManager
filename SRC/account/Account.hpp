@@ -5,8 +5,8 @@
 #include <windows.h>
 #include <vector>
 
-#include "./actor/Actor.hpp"
-#include "./transaction/Transaction.hpp"
+#include "../actor/Actor.hpp"
+#include "../transaction/Transaction.hpp"
 
 using namespace std;
 
@@ -25,7 +25,7 @@ public:
 	double getBalance() const;
 	double getWithdrawal() const;
 	double getDeposit() const;
-	string getHistoricalTransaction() const;
+	string getHistoricalTransaction();
 	// Setter
 	void setCustomer(Actor* const customer);
 	void setAdviser(Actor* const adviser);

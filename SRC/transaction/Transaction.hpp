@@ -5,8 +5,8 @@
 #include <windows.h>
 #include <vector>
 
-#include "./actor/Actor.hpp"
-#include "./transaction/Transaction.hpp"
+#include "../actor/Actor.hpp"
+#include "../transaction/Transaction.hpp"
 
 using namespace std;
 

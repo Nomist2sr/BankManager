@@ -32,7 +32,7 @@ double Account::getWithdrawal() const {
 double Account::getDeposit() const {
 	return this->deposit;
 }
-string Account::getHistoricalTransaction() const {
+string Account::getHistoricalTransaction() {
 	stringstream ss;
 	ss << "Transaction List : " << endl;
 	for (Transaction& transaction : this->historicalTransaction)
@@ -59,7 +59,7 @@ void Account::setDeposit(double const deposit) {
 	this->deposit = deposit;
 }
 void Account::setHistoricalTransaction(vector<Transaction> const historicalTransaction) {
-	this->historicalTransaction.push_back(historicalTransaction);
+	// TODO : à terminer
 }
 
 // Méthode

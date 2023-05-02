@@ -41,17 +41,17 @@ string Actor::getAdress() const
 
 //SETTER
 
-void Actor::setName(string name) const
+void Actor::setName(string const name)
 {
 	this->name = name;
 }
 
-void Actor::setFirstname(string firstname) const
+void Actor::setFirstname(string const firstname )
 {
 	this->firstname = firstname;
 }
 
-void Actor::setAdress(string adress) const
+void Actor::setAdress(string const adress)
 {
 	this->adress = adress;
 }
