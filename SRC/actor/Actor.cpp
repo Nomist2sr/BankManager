@@ -9,6 +9,7 @@ using namespace std;
 
 //CONSTRUCTEUR
 
+
 Actor::Actor(string name, string firstname, string adress)
 {
 	this->name = name;
