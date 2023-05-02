@@ -55,3 +55,10 @@ void Actor::setAdress(string const adress)
 {
 	this->adress = adress;
 }
+
+// Méthode
+string Actor::displayInformation() {
+	stringstream ss;
+	ss << "Name : " << this->name << " / Firstname : " << this->firstname << " / Adress : " << this->adress << endl;
+	return ss.str();
+}

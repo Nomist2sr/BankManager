@@ -10,6 +10,9 @@ SRC_MAIN	=	$(SRC_DIR)main/Main.cpp
 
 SRC	=	$(SRC_MAIN)										\
 		$(SRC_DIR)account/Account.cpp					\
+		$(SRC_DIR)account/onlineAccount/OnlineAccount.cpp					\
+		$(SRC_DIR)account/savingAccount/SavingAccount.cpp					\
+		$(SRC_DIR)account/standardAccount/StandardAccount.cpp					\
 		$(SRC_DIR)actor/Actor.cpp						\
 		$(SRC_DIR)actor/advisor/Advisor.cpp				\
 		$(SRC_DIR)actor/customer/Customer.cpp			\
