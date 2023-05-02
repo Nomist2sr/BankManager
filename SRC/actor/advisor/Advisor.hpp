@@ -13,8 +13,8 @@ public:
 	Adivsor(string name, string firstname, string adress);
 	// Destructeur
 	~Adivsor();
-	// Méthode abstraite implémentée
+	// Mï¿½thode abstraite implï¿½mentï¿½e
 
 protected:
-	
+
 };
