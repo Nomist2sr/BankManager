@@ -4,16 +4,17 @@
 
 using namespace std;
 
-class Adivsor : Actor {
+class Advisor : Actor {
 private:
 
 public:
 	// Constructeur
-	Adivsor();
-	Adivsor(string name, string firstname, string adress);
+	Advisor();
+	Advisor(string name, string firstname, string adress);
 	// Destructeur
-	~Adivsor();
-	// Mï¿½thode abstraite implï¿½mentï¿½e
+
+	~Advisor();
+	// Méthode abstraite implémentée
 
 protected:
 
