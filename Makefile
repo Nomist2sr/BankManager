@@ -27,7 +27,7 @@ $(NAME):	$(OBJ)
 clean:
 		$(RM) *.o
 
-fclean:		clean
+fclean:	
 		$(RM) $(NAME)
 		$(RM) $(NAME_TEST)
 
