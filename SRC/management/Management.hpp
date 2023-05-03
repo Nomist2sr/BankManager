@@ -1,8 +1,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "../actor/Actor.hpp"
-#include "../account/Account.hpp"
+
+#include "../actor/advisor/Advisor.hpp"
+#include "../actor/customer/Customer.hpp"
+#include "../account/onlineAccount/OnlineAccount.hpp"
+#include "../account/savingAccount/SavingAccount.hpp"
+#include "../account/standardAccount/StandardAccount.hpp"
 #include "../transaction/Transaction.hpp"
 
 
@@ -42,7 +46,7 @@ public:
 	//Setter
 	void setPerson(Actor* const person);
 	void setAccount(Account* const account);
-	void setTransaction(Transaction const transaction);
+	void setTransaction(Transaction* const transaction);
 
 
 protected:

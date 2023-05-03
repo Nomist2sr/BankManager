@@ -85,7 +85,7 @@ void Management::addAdviser(Advisor* adv)				//Ajout d'un conseillé dans le vect
 
 void Management::addAccount(Account* acc)				//Ajout d'un compte dans le vecteur accounts
 {
-	this->accounts.push_back(adv);
+	this->accounts.push_back(acc);
 
 }
 
@@ -103,7 +103,6 @@ void Management::deleteCustomer(Customer* cust)			//Suppression d'un client dans
 
 void Management::deleteAdviser(Advisor* adv)			//Suppression d'un conseillé dans le vecteur advisers
 {
-{
 	this->advisers.erase(advisers.end());
 
 }
@@ -115,7 +114,6 @@ void Management::deleteAccount(Account* acc)			//Suppression d'un compte dans le
 }
 
 void Management::deleteTransaction(Transaction* trans)	//Suppression d'une transaction dans le vecteur transactions
-{
 {
 	this->transactions.erase(transactions.end());
 

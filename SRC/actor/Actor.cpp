@@ -8,7 +8,7 @@ using namespace std;
 //Impl�mentation pour la classe Actor
 
 //CONSTRUCTEUR
-
+Actor::Actor() {}
 
 Actor::Actor(string name, string firstname, string adress)
 {
