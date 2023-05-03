@@ -40,6 +40,8 @@ int main(void) {
     // Suppresion d'un utilisateur, de ses comptes et des transactions associées
     management->deleteCustomer(customer);
     
+    delete advisor;
+    delete management;
     // Fin du programme
     cout << "End of program" << endl;
 
