@@ -19,12 +19,11 @@ Management::Management()
 }
 
 //Implémentation constructeur avec les paramétres
-Management::Management(Actor* person, Account* account, Transaction* transaction) {
+Management::Management(Actor* customer, Actor* adviser) {
 
-	this->person = person;
-	this->account = account;
-	this->transaction = transaction;
-
+	this->customer = customer;
+	this->advisor = advisor;
+	vector<Account*>accounts;
 }
 
 //Implémentation Destructeur
@@ -33,9 +32,15 @@ Management::~Management() {};
 
 
 //Implémentation  getter
-Actor* Management::getPerson() const
+Actor* Management::getCustomer() const
 {
-	return this->person;
+	return this->customer;
+
+}
+
+Actor* Management::getAdvisor() const
+{
+	return this->advisor;
 
 }
 
@@ -51,12 +56,23 @@ Transaction* Management::getTransaction() const
 
 }
 
+string Management::getAccounts() const
+{
+	stringstream ss;
+	ss << "Account List : " << endl;
+	for (Account* account : this->accounts)
+	{
+		ss << "Customer : " << account->getCustomer()->getName() << " / Advisor : " << account->getAdviser()->getName() << " / Balance : " << account->getBalance() << endl;
+	}
+	return ss.str();
+}
 //Implémentation  setter
+/*
 void Management::setPerson(Actor* const person)
 {
 	this->person = person;
 }
-
+*/
 void Management::setAccount(Account* const account)
 {
 	this->account = account;
@@ -71,13 +87,13 @@ void Management::setTransaction(Transaction* const transaction)
 //Méthodes 
 
 
-void Management::addCustomer(Customer* cust)			//Ajout d'un client dans le vecteur customers
+void Management::addCustomer(Actor* cust)			//Ajout d'un client dans le vecteur customers
 {
 	this->customers.push_back(cust);
 
 }
 
-void Management::addAdviser(Advisor* adv)				//Ajout d'un conseillé dans le vecteur advisers
+void Management::addAdviser(Actor* adv)				//Ajout d'un conseillé dans le vecteur advisers
 {
 	this->advisers.push_back(adv);
 
@@ -89,19 +105,18 @@ void Management::addAccount(Account* acc)				//Ajout d'un compte dans le vecteur
 
 }
 
-void Management::addTransaction(Transaction* trans)		//Ajout d'une transaction dans le vecteur transactions
+void Management::addTransaction(Account* account, Transaction* trans)		//Ajout d'une transaction dans le vecteur transactions
 {
-	this->transactions.push_back(trans);
-
+	account->setHistoricalTransaction(trans);
 }
 
-void Management::deleteCustomer(Customer* cust)			//Suppression d'un client dans le vecteur customers
+void Management::deleteCustomer(Actor* cust)			//Suppression d'un client dans le vecteur customers
 {
 	this->customers.erase(customers.end());
 
 }
 
-void Management::deleteAdviser(Advisor* adv)			//Suppression d'un conseillé dans le vecteur advisers
+void Management::deleteAdviser(Actor* adv)			//Suppression d'un conseillé dans le vecteur advisers
 {
 	this->advisers.erase(advisers.end());
 

@@ -4,11 +4,8 @@
 SavingAccount::SavingAccount() : Account() {
 
 }
-SavingAccount::SavingAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction) {
-	this->customer = customer;
-	this->adviser = adviser;
-	this->balance = balance;
-	this->historicalTransaction = historicalTransaction;
+SavingAccount::SavingAccount(Actor* customer, Actor* adviser, double balance) : Account(customer, adviser, balance) {
+	
 }
 // Destructeur
 SavingAccount::~SavingAccount() {
@@ -16,7 +13,9 @@ SavingAccount::~SavingAccount() {
 }
 // Méthode
 string SavingAccount::checkInterest() {
-	// TODO : à terminer
+	stringstream ss;
+	ss << "SavingAccount Interest Bank Data : " << endl;
+	return ss.str();
 }
 // Méthode abstraite implémentée
 string SavingAccount::checkBalance() {

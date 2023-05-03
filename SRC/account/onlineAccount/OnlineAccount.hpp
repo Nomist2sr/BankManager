@@ -8,7 +8,7 @@ private:
 public:
 	// Constructeur
 	OnlineAccount();
-	OnlineAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction);
+	OnlineAccount(Actor* customer, Actor* adviser, double balance);
 	// Destructeur
 	~OnlineAccount();
 	// Méthode abstraite implémentée

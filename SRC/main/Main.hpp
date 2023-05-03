@@ -6,6 +6,7 @@
 #include "../account/savingAccount/SavingAccount.hpp"
 #include "../account/standardAccount/StandardAccount.hpp"
 #include "../transaction/Transaction.hpp"
+#include "../management/Management.hpp"
 
 using namespace std;
 

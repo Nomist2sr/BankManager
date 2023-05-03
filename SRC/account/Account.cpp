@@ -4,11 +4,11 @@
 Account::Account() {
 
 }
-Account::Account(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction) {
+Account::Account(Actor* customer, Actor* adviser, double balance) {
 	this->customer = customer;
 	this->adviser = adviser;
 	this->balance = balance;
-	//this->historicalTransaction = historicalTransaction;
+	vector<Transaction*> historicalTransaction;
 }
 
 // Destructeur
@@ -60,6 +60,7 @@ void Account::setDeposit(double const deposit) {
 }
 void Account::setHistoricalTransaction(Transaction* transaction) {
 	this->historicalTransaction.push_back(transaction);
+	this->balance += transaction->getSum();
 }
 
 // Méthode

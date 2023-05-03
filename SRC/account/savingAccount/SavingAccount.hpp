@@ -8,7 +8,7 @@ private:
 public:
 	// Constructeur
 	SavingAccount();
-	SavingAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction);
+	SavingAccount(Actor* customer, Actor* adviser, double balance);
 	// Destructeur
 	~SavingAccount();
 	// Méthode

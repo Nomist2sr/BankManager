@@ -4,22 +4,18 @@
 
 int main(void) {
     
-    vector<Transaction*> transactions;
-    // Création d'un client et d'un conseiller
-    Actor* customer = new Customer("DE SOUSA PEIXEIRA", "Joachim", "Boulevard du Petit Port");
-    Actor* advisor = new Advisor("CONSEIL", "Pierre", "Boulevard de la bourse");
+    // Création d'un client
+    Actor* customer = new Customer("John", "Doe", "MyAdress");
+    // Création d'un conseiller
+    Actor* advisor = new Advisor("Mister", "Freeze", "IceBank");
     // Création d'un compte
-    Account* onlineAccount = new OnlineAccount(customer, advisor, 0, transactions);
-    // Création d'une opération
-    onlineAccount->setHistoricalTransaction(new Transaction("02/05/23", "Deposit", 100));
-    onlineAccount->setHistoricalTransaction(new Transaction("02/05/23", "Withdrawal", -200));
-
-    // Affichage des informations
-    cout << customer->displayInformation();
-    cout << advisor->displayInformation();
-    cout << onlineAccount->allDeposit();
-    cout << onlineAccount->allWithdrawal();
-    cout << onlineAccount->checkTransaction();
+    Account* onlineAccount = new OnlineAccount(customer, advisor, 0);
+    // Création d'une gestion de compte
+    Management* management = new Management(customer, advisor);
+    management->addAccount(onlineAccount);
+    management->addTransaction(onlineAccount, new Transaction("02/05/23", "Deposit", 100));
+    management->addTransaction(onlineAccount, new Transaction("02/05/23", "Withdrawal", -200));
+    cout << management->getAccounts();
 
     return (0);
 }

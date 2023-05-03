@@ -19,11 +19,12 @@ class Management {
 //Attributs privés aucun n'accès en dehors de la classe
 private:
 	//Attributs et vector
-	Actor* person;
+	Actor* customer;
+	Actor* advisor;
 	Account* account;
 	Transaction* transaction;
-	vector<Customer*>customers;       // vector qui pointe vers l'objet Customer et stock les clients
-	vector<Advisor*>advisers;		  // vector qui pointe vers l'objet Advisor et stock les conseillés
+	vector<Actor*>customers;       // vector qui pointe vers l'objet Customer et stock les clients
+	vector<Actor*>advisers;		  // vector qui pointe vers l'objet Advisor et stock les conseillés
 	vector<Account*>accounts;		  // vector qui pointe vers l'objet Account et stock les comptes
 	vector<Transaction*>transactions; // vector qui pointe vers l'objet Transaction et stock les transactions
 	
@@ -33,33 +34,33 @@ public:
 
 	//Constructeur
 	Management();  //Initialisation du constructeur par défaut
-	Management(Actor* person, Account* account, Transaction* transaction);  //Initialisation du constructeur avec les paramétres
+	Management(Actor* customer, Actor* adviser);  //Initialisation du constructeur avec les paramétres
 
 	//destructeur
 	~Management();
 
 	//Getter
-	Actor* getPerson() const;
+	Actor* getCustomer() const;
+	Actor* getAdvisor() const;
 	Account* getAccount() const;
 	Transaction* getTransaction() const;
+	string getAccounts() const;
 
 	//Setter
-	void setPerson(Actor* const person);
+	//void setPerson(Actor* const person);
 	void setAccount(Account* const account);
 	void setTransaction(Transaction* const transaction);
 
-
-protected:
-
 	//Méthodes prototypage
-	void addCustomer(Customer* cust);  
-	void addAdviser(Advisor* adv);
+	void addCustomer(Actor* cust);
+	void addAdviser(Actor* adv);
 	void addAccount(Account* acc);
-	void addTransaction(Transaction* trans);
-	void deleteCustomer(Customer* cust);
-	void deleteAdviser(Advisor* adv);
+	void addTransaction(Account* account, Transaction* trans);
+	void deleteCustomer(Actor* cust);
+	void deleteAdviser(Actor* adv);
 	void deleteAccount(Account* acc);
 	void deleteTransaction(Transaction* trans);
 
+protected:
 
 };

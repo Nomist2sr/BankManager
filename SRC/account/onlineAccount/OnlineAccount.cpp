@@ -4,11 +4,8 @@
 OnlineAccount::OnlineAccount() : Account() {
 
 }
-OnlineAccount::OnlineAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction) {
-	this->customer = customer;
-	this->adviser = adviser;
-	this->balance = balance;
-	this->historicalTransaction = historicalTransaction;
+OnlineAccount::OnlineAccount(Actor* customer, Actor* adviser, double balance) : Account(customer, adviser, balance) {
+	
 }
 // Destructeur
 OnlineAccount::~OnlineAccount() {

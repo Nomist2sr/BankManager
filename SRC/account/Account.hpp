@@ -16,7 +16,7 @@ private:
 public:
 	// Constructeur
 	Account();
-	Account(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction);
+	Account(Actor* customer, Actor* adviser, double balance);
 	// Destructeur
 	~Account();
 	// Getter
