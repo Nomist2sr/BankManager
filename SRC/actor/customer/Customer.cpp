@@ -10,5 +10,5 @@ Customer::Customer() {}
 Customer::Customer(string name, string firstname, string adress) :Actor(name, firstname, adress) {};
 
 Customer::~Customer() {
-	
+	cout << "Customer destructor" << endl;
 };

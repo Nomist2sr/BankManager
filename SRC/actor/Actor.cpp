@@ -18,7 +18,9 @@ Actor::Actor(string name, string firstname, string adress)
 
 }
 
-Actor::~Actor() {};
+Actor::~Actor() {
+	cout << "Actor destructor" << endl;
+};
 
 
 //GETTER

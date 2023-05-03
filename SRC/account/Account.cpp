@@ -2,7 +2,7 @@
 
 // Constructeur
 Account::Account() {
-
+	vector<Transaction*> historicalTransaction;
 }
 Account::Account(Actor* customer, Actor* adviser, double balance) {
 	this->customer = customer;
@@ -13,7 +13,11 @@ Account::Account(Actor* customer, Actor* adviser, double balance) {
 
 // Destructeur
 Account::~Account() {
-	// TODO : delete de toutes les transactions
+	for (Transaction* transaction : this->historicalTransaction)
+	{
+		delete transaction;
+	}
+	cout << "Transactions have been deleted" << endl;
 }
 
 // Getter
