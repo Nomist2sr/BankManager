@@ -14,7 +14,7 @@ OnlineAccount::~OnlineAccount() {
 // Méthode abstraite implémentée
 string OnlineAccount::checkBalance() {
 	stringstream ss;
-	ss << "Online Bank Data : " << endl;
+	ss << "Online Bank Data => ";
 	ss << "Balance : " << this->balance << endl;
 	return ss.str();
 }

@@ -61,11 +61,8 @@ string Management::getAccounts() const
 	ss << "Account List : " << endl;
 	for (Account* account : this->accounts)
 	{
-		ss << "Customer : " << account->getCustomer()->getName() << " / Advisor : " << account->getAdviser()->getName() << " / Balance : " << account->getBalance() << endl;
-		ss << account->allDeposit() << endl;
-		ss << account->allWithdrawal() << endl;
-		ss << account->checkTransaction() << endl;
-		ss << account->checkBalance() << endl;
+		ss << account->checkBalance();
+
 	}
 	return ss.str();
 }
@@ -136,6 +133,25 @@ void Management::deleteTransaction(Account* account)	//Suppression d'une transac
 	account->deleteLastOperation();
 }
 
+string Management::getAllDeposit(Account* account) {
+
+	return account->allDeposit();
+}
+
+string Management::getAllWithdrawal(Account* account) {
+
+	return account->allWithdrawal();
+}
+
+string Management::getCheckBalance(Account* account) {
+
+	return account->checkBalance();
+}
+
+string Management::getCheckTransaction(Account* account) {
+	
+	return account->checkTransaction();
+}
 
 
 

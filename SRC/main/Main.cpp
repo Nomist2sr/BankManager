@@ -5,24 +5,29 @@
 int main(void) {
     
     // Création d'un client
-    Actor* customer = new Customer("John", "Doe", "MyAdress");
+    Actor* customer = new Customer("DOE", "John", "MyAdress");
     // Création d'un conseiller
-    Actor* advisor = new Advisor("Mister", "Freeze", "IceBank");
-    // Création d'un compte
+    Actor* advisor = new Advisor("FREEZE", "Mister", "IceBank");
+    // Création de compte
     Account* onlineAccount = new OnlineAccount(customer, advisor, 0);
+    Account* savingAccount = new SavingAccount(customer, advisor, 0);
     // Création d'une gestion de compte
     Management* management = new Management(customer, advisor);
     management->addAccount(onlineAccount);
+    management->addAccount(savingAccount);
     management->addTransaction(onlineAccount, new Transaction("02/05/23", "Deposit", 100));
+    management->addTransaction(onlineAccount, new Transaction("02/05/23", "Deposit", 500));
     management->addTransaction(onlineAccount, new Transaction("02/05/23", "Withdrawal", -200));
-    // Affichage des informations du coompte
-    cout << management->getAccounts();
-    //cout << management->getAccount()->allDeposit();
-    cout << "Suppression operation" << endl;
-    // Suppresion d'une opération
-    management->deleteTransaction(onlineAccount);
-    //cout << management->getAccount()->allDeposit();
-    cout << management->getAccounts();
+    management->addTransaction(savingAccount, new Transaction("03/05/23", "Withdrawal", -50));
+    // Affichage de la liste des comptes
+    cout << management->getAccounts() << endl;
+    // Affichage des informations pour un compte
+    cout << management->getAllDeposit(onlineAccount) << endl;
+    cout << management->getAllWithdrawal(onlineAccount) << endl;
+    cout << management->getCheckBalance(onlineAccount) << endl;
+    cout << management->getCheckTransaction(onlineAccount) << endl;
+    // Suppression d'un compte et de ses transactions
+    delete onlineAccount;
 
     return (0);
 }

@@ -61,6 +61,11 @@ public:
 	void deleteAccount(Account* acc);
 	void deleteTransaction(Account* account);
 
+	string getAllDeposit(Account* account);
+	string getAllWithdrawal(Account* account);
+	string getCheckBalance(Account* account);
+	string getCheckTransaction(Account* account);
+
 protected:
 
 };

@@ -20,7 +20,7 @@ string SavingAccount::checkInterest() {
 // Méthode abstraite implémentée
 string SavingAccount::checkBalance() {
 	stringstream ss;
-	ss << "SavingAccount Bank Data : " << endl;
+	ss << "SavingAccount Bank Data => ";
 	ss << "Balance : " << this->balance << endl;
 	return ss.str();
 }

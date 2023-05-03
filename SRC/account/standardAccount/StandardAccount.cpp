@@ -16,7 +16,7 @@ StandardAccount::~StandardAccount() {
 // Méthode abstraite implémentée
 string StandardAccount::checkBalance() {
 	stringstream ss;
-	ss << "StandardAccount Bank Data : " << endl;
+	ss << "StandardAccount Bank Data => ";
 	ss << "Balance : " << this->balance << endl;
 	return ss.str();
 }
