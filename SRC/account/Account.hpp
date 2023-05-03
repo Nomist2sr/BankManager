@@ -16,7 +16,7 @@ private:
 public:
 	// Constructeur
 	Account();
-	Account(Actor* customer, Actor* adviser, double balance, vector<Transaction> historicalTransaction);
+	Account(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction);
 	// Destructeur
 	~Account();
 	// Getter
@@ -32,7 +32,7 @@ public:
 	void setBalance(double const balance);
 	void setWithdrawal(double const withdrawal);
 	void setDeposit(double const deposit);
-	void setHistoricalTransaction(vector<Transaction> const historicalTransaction);
+	void setHistoricalTransaction(Transaction* transaction);
 	// Méthode
 	string checkTransaction();
 	string allWithdrawal();
@@ -46,5 +46,5 @@ protected:
 	double balance;
 	double withdrawal;
 	double deposit;
-	vector<Transaction> historicalTransaction;
+	vector<Transaction*> historicalTransaction;
 };

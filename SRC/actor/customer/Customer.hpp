@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class Customer : Actor {
+class Customer : public Actor {
 private:
 
 public:

@@ -4,8 +4,11 @@
 SavingAccount::SavingAccount() : Account() {
 
 }
-SavingAccount::SavingAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction> historicalTransaction) : Account(Actor* customer, Actor* adviser, double balance, vector<Transaction> historicalTransaction) {
-
+SavingAccount::SavingAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction) {
+	this->customer = customer;
+	this->adviser = adviser;
+	this->balance = balance;
+	this->historicalTransaction = historicalTransaction;
 }
 // Destructeur
 SavingAccount::~SavingAccount() {

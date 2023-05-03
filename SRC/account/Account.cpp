@@ -4,11 +4,11 @@
 Account::Account() {
 
 }
-Account::Account(Actor* customer, Actor* adviser, double balance, vector<Transaction> historicalTransaction) {
+Account::Account(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction) {
 	this->customer = customer;
 	this->adviser = adviser;
 	this->balance = balance;
-	this->historicalTransaction = historicalTransaction;
+	//this->historicalTransaction = historicalTransaction;
 }
 
 // Destructeur
@@ -35,9 +35,9 @@ double Account::getDeposit() const {
 string Account::getHistoricalTransaction() {
 	stringstream ss;
 	ss << "Transaction List : " << endl;
-	for (Transaction& transaction : this->historicalTransaction)
+	for (Transaction* transaction : this->historicalTransaction)
 	{
-		ss << "Date : " << transaction.getDate() << " / Name : " << transaction.getName() << " / Sum : " << transaction.getSum() << endl;
+		ss << "Date : " << transaction->getDate() << " / Name : " << transaction->getName() << " / Sum : " << transaction->getSum() << endl;
 	}
 	return ss.str();
 }
@@ -58,8 +58,8 @@ void Account::setWithdrawal(double const withdrawal) {
 void Account::setDeposit(double const deposit) {
 	this->deposit = deposit;
 }
-void Account::setHistoricalTransaction(vector<Transaction> const historicalTransaction) {
-	// TODO : à terminer
+void Account::setHistoricalTransaction(Transaction* transaction) {
+	this->historicalTransaction.push_back(transaction);
 }
 
 // Méthode
@@ -69,10 +69,10 @@ string Account::checkTransaction() {
 string Account::allWithdrawal() {
 	stringstream ss;
 	ss << "All withdrawal : " << endl;
-	for (Transaction& transaction : this->historicalTransaction)
+	for (Transaction* transaction : this->historicalTransaction)
 	{
-		if (transaction.getSum() < 0) {
-			ss << "Date : " << transaction.getDate() << " / Name : " << transaction.getName() << " / Sum : " << transaction.getSum() << endl;
+		if (transaction->getSum() < 0) {
+			ss << "Date : " << transaction->getDate() << " / Name : " << transaction->getName() << " / Sum : " << transaction->getSum() << endl;
 		}
 	}
 	return ss.str();
@@ -80,10 +80,10 @@ string Account::allWithdrawal() {
 string Account::allDeposit() {
 	stringstream ss;
 	ss << "All deposit : " << endl;
-	for (Transaction& transaction : this->historicalTransaction)
+	for (Transaction* transaction : this->historicalTransaction)
 	{
-		if (transaction.getSum() >= 0) {
-			ss << "Date : " << transaction.getDate() << " / Name : " << transaction.getName() << " / Sum : " << transaction.getSum() << endl;
+		if (transaction->getSum() >= 0) {
+			ss << "Date : " << transaction->getDate() << " / Name : " << transaction->getName() << " / Sum : " << transaction->getSum() << endl;
 		}
 	}
 	return ss.str();

@@ -2,9 +2,8 @@
 
 #include "../Actor.hpp"
 
-using namespace std;
 
-class Advisor : Actor {
+class Advisor : public Actor {
 private:
 
 public:

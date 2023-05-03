@@ -8,7 +8,7 @@ private:
 public:
 	// Constructeur
 	StandardAccount();
-	StandardAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction> historicalTransaction);
+	StandardAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction);
 	// Destructeur
 	~StandardAccount();
 	// Méthode

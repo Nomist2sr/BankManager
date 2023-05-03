@@ -4,8 +4,11 @@
 StandardAccount::StandardAccount() : Account() {
 
 }
-StandardAccount::StandardAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction> historicalTransaction) : Account(Actor* customer, Actor* adviser, double balance, vector<Transaction> historicalTransaction) {
-
+StandardAccount::StandardAccount(Actor* customer, Actor* adviser, double balance, vector<Transaction*> historicalTransaction) {
+	this->customer = customer;
+	this->adviser = adviser;
+	this->balance = balance;
+	this->historicalTransaction = historicalTransaction;
 }
 // Destructeur
 StandardAccount::~StandardAccount() {
