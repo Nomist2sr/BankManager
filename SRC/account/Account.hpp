@@ -36,6 +36,7 @@ public:
 	string checkTransaction();
 	string allWithdrawal();
 	string allDeposit();
+	void deleteLastOperation();
 	// Méthode abstraite
 	virtual string checkBalance() = 0;
 	

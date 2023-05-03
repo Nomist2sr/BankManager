@@ -59,7 +59,7 @@ public:
 	void deleteCustomer(Actor* cust);
 	void deleteAdviser(Actor* adv);
 	void deleteAccount(Account* acc);
-	void deleteTransaction(Transaction* trans);
+	void deleteTransaction(Account* account);
 
 protected:
 

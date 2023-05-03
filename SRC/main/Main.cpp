@@ -17,7 +17,12 @@ int main(void) {
     management->addTransaction(onlineAccount, new Transaction("02/05/23", "Withdrawal", -200));
     // Affichage des informations du coompte
     cout << management->getAccounts();
-    cout << management->getAccount()->allDeposit();
+    //cout << management->getAccount()->allDeposit();
+    cout << "Suppression operation" << endl;
+    // Suppresion d'une opération
+    management->deleteTransaction(onlineAccount);
+    //cout << management->getAccount()->allDeposit();
+    cout << management->getAccounts();
 
     return (0);
 }

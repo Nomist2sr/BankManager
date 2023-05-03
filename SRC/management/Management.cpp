@@ -8,7 +8,7 @@
 
 using namespace std;
 
-									//Implémentation de la classe Management
+//Implémentation de la classe Management
 
 //Implémentation constructeur par defaut
 
@@ -131,10 +131,9 @@ void Management::deleteAccount(Account* acc)			//Suppression d'un compte dans le
 
 }
 
-void Management::deleteTransaction(Transaction* trans)	//Suppression d'une transaction dans le vecteur transactions
+void Management::deleteTransaction(Account* account)	//Suppression d'une transaction dans le vecteur transactions
 {
-	this->transactions.erase(transactions.end());
-
+	account->deleteLastOperation();
 }
 
 

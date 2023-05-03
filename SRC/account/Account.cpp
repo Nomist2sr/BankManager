@@ -89,3 +89,7 @@ string Account::allDeposit() {
 	}
 	return ss.str();
 }
+
+void Account::deleteLastOperation() {
+	this->historicalTransaction.pop_back();
+}
