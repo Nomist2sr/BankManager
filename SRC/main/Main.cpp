@@ -15,7 +15,9 @@ int main(void) {
     management->addAccount(onlineAccount);
     management->addTransaction(onlineAccount, new Transaction("02/05/23", "Deposit", 100));
     management->addTransaction(onlineAccount, new Transaction("02/05/23", "Withdrawal", -200));
+    // Affichage des informations du coompte
     cout << management->getAccounts();
+    cout << management->getAccount()->allDeposit();
 
     return (0);
 }

@@ -47,7 +47,6 @@ Actor* Management::getAdvisor() const
 Account* Management::getAccount() const
 {
 	return this->account;
-
 }
 
 Transaction* Management::getTransaction() const
@@ -63,6 +62,10 @@ string Management::getAccounts() const
 	for (Account* account : this->accounts)
 	{
 		ss << "Customer : " << account->getCustomer()->getName() << " / Advisor : " << account->getAdviser()->getName() << " / Balance : " << account->getBalance() << endl;
+		ss << account->allDeposit() << endl;
+		ss << account->allWithdrawal() << endl;
+		ss << account->checkTransaction() << endl;
+		ss << account->checkBalance() << endl;
 	}
 	return ss.str();
 }
