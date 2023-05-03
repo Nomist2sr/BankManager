@@ -14,11 +14,6 @@ Account::Account(Actor* customer, Actor* adviser, double balance) {
 // Destructeur
 Account::~Account() {
 	cout << "Account destructor" << endl;
-	for (Transaction* transaction : this->historicalTransaction)
-	{
-		delete transaction;
-	}
-	cout << "Transactions have been deleted" << endl;
 }
 
 // Getter
