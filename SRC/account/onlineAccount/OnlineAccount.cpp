@@ -9,7 +9,12 @@ OnlineAccount::OnlineAccount(Actor* customer, Actor* adviser, double balance) : 
 }
 // Destructeur
 OnlineAccount::~OnlineAccount() {
-	// TODO : delete de toutes les transactions
+	cout << "OnlineAccount destructor" << endl;
+	for (Transaction* transaction : this->historicalTransaction)
+	{
+		delete transaction;
+	}
+	cout << "Transactions have been deleted" << endl;
 }
 // Méthode abstraite implémentée
 string OnlineAccount::checkBalance() {

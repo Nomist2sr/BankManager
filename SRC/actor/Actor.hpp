@@ -13,7 +13,7 @@ public:
 	Actor();
 	Actor(string name, string firstname, string adress);
 	// Destructeur
-	~Actor();
+	virtual ~Actor();
 	// Getter
 	string getName() const;
 	string getFirstname() const;

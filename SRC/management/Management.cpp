@@ -115,7 +115,7 @@ void Management::addTransaction(Account* account, Transaction* trans)		//Ajout d
 void Management::deleteCustomer(Actor* cust)			//Suppression d'un client dans le vecteur customers
 {
 	for (Account* account : this->accounts) {
-		delete account;
+		this->accounts.erase(std::remove(accounts.begin(), accounts.end(), account), accounts.end());
 	}
 	delete cust;
 }

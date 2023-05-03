@@ -17,7 +17,7 @@ public:
 	Account();
 	Account(Actor* customer, Actor* adviser, double balance);
 	// Destructeur
-	~Account();
+	virtual ~Account();
 	// Getter
 	Actor* getCustomer() const;
 	Actor* getAdviser() const;

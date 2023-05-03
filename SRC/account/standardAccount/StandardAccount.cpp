@@ -9,7 +9,12 @@ StandardAccount::StandardAccount(Actor* customer, Actor* adviser, double balance
 }
 // Destructeur
 StandardAccount::~StandardAccount() {
-	// TODO : delete de toutes les transactions
+	cout << "StandardAccount destructor" << endl;
+	for (Transaction* transaction : this->historicalTransaction)
+	{
+		delete transaction;
+	}
+	cout << "Transactions have been deleted" << endl;
 }
 // Méthode
 

@@ -9,7 +9,12 @@ SavingAccount::SavingAccount(Actor* customer, Actor* adviser, double balance) : 
 }
 // Destructeur
 SavingAccount::~SavingAccount() {
-	// TODO : delete de toutes les transactions
+	cout << "SavingAccount destructor" << endl;
+	for (Transaction* transaction : this->historicalTransaction)
+	{
+		delete transaction;
+	}
+	cout << "Transactions have been deleted" << endl;
 }
 // Méthode
 string SavingAccount::checkInterest() {
