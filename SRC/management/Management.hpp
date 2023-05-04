@@ -22,19 +22,14 @@ private:
 	Actor* customer;
 	Actor* advisor;
 	Account* account;
-	Transaction* transaction;
-	vector<Actor*>customers;       // vector qui pointe vers l'objet Customer et stock les clients
-	vector<Actor*>advisers;		  // vector qui pointe vers l'objet Advisor et stock les conseillés
 	vector<Account*>accounts;		  // vector qui pointe vers l'objet Account et stock les comptes
-	vector<Transaction*>transactions; // vector qui pointe vers l'objet Transaction et stock les transactions
-	
 
 //Accès à l'extérieur de la classe
 public:
 
 	//Constructeur
 	Management();  //Initialisation du constructeur par défaut
-	Management(Actor* customer, Actor* adviser);  //Initialisation du constructeur avec les paramétres
+	Management(Actor* customer, Actor* advisor);  //Initialisation du constructeur avec les paramétres
 
 	//destructeur
 	~Management();
@@ -43,21 +38,20 @@ public:
 	Actor* getCustomer() const;
 	Actor* getAdvisor() const;
 	Account* getAccount() const;
-	Transaction* getTransaction() const;
 	string getAccounts() const;
 
 	//Setter
-	//void setPerson(Actor* const person);
+	void setCustomer(Actor* const customer);
+	void setAdvisor(Actor* const advisor);
 	void setAccount(Account* const account);
-	void setTransaction(Transaction* const transaction);
 
 	//Méthodes prototypage
 	void addCustomer(Actor* cust);
-	void addAdviser(Actor* adv);
+	void addAdvisor(Actor* adv);
 	void addAccount(Account* acc);
 	void addTransaction(Account* account, Transaction* trans);
-	void deleteCustomer(Actor* cust);
-	void deleteAdviser(Actor* adv);
+	void deleteCustomer();
+	void deleteAdvisor();
 	void deleteAccount(Account* acc);
 	void deleteTransaction(Account* account);
 

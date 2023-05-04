@@ -31,7 +31,7 @@ $(NAME):	$(OBJ)
 clean:
 		$(RM) *.o
 
-fclean:	
+fclean:
 		$(RM) $(NAME)
 		$(RM) $(NAME_TEST)
 

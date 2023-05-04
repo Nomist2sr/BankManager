@@ -3,7 +3,7 @@
 #include "Main.hpp"
 
 int main(void) {
-    
+
     // Création d'un client
     Actor* customer = new Customer("DOE", "John", "MyAdress");
     // Création d'un conseiller
@@ -38,9 +38,9 @@ int main(void) {
     // Affichage de la liste des comptes
     cout << management->getAccounts() << endl;
     // Suppresion d'un utilisateur, de ses comptes et des transactions associées
-    management->deleteCustomer(customer);
+    management->deleteCustomer();
     // Suppression du conseiller et du management
-    delete advisor;
+    //delete advisor;
     delete management;
     // Fin du programme
     cout << "End of program" << endl;

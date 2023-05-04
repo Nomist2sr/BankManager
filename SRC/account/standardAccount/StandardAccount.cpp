@@ -5,7 +5,7 @@ StandardAccount::StandardAccount() : Account() {
 
 }
 StandardAccount::StandardAccount(Actor* customer, Actor* adviser, double balance) : Account(customer, adviser, balance) {
-	
+
 }
 // Destructeur
 StandardAccount::~StandardAccount() {

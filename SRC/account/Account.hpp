@@ -39,7 +39,7 @@ public:
 	void deleteLastOperation();
 	// Méthode abstraite
 	virtual string checkBalance() = 0;
-	
+
 protected:
 	Actor* customer;
 	Actor* adviser;

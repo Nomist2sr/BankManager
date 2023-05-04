@@ -17,10 +17,10 @@ You need to have Cmake installed and to be at the project root. Then execute on 
 **Terminal :**
 
 ```
-cmake ..
-```
-```
 make
+```
+```
+./banck_manager
 ```
 
 ## Authors
