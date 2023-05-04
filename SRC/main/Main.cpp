@@ -39,7 +39,7 @@ int main(void) {
     cout << management->getAccounts() << endl;
     // Suppresion d'un utilisateur, de ses comptes et des transactions associées
     management->deleteCustomer(customer);
-    
+    // Suppression du conseiller et du management
     delete advisor;
     delete management;
     // Fin du programme

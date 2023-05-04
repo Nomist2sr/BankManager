@@ -10,5 +10,5 @@ Advisor::Advisor(){}
 Advisor::Advisor(string name, string firstname, string adress) : Actor(name, firstname, adress) {}
 
 Advisor::~Advisor() {
-	cout << "Actor destructor" << endl;
+	cout << "Advisor destructor" << endl;
 };

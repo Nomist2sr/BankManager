@@ -29,7 +29,9 @@ Management::Management(Actor* customer, Actor* adviser) {
 }
 
 //Implémentation Destructeur
-Management::~Management() {};
+Management::~Management() {
+	cout << "Management destructor" << endl;
+};
 
 
 
