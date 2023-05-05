@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <thread>
+#include <mutex>
+#include <chrono>
 
 #include "../actor/advisor/Advisor.hpp"
 #include "../actor/customer/Customer.hpp"
@@ -54,6 +57,7 @@ public:
 	void deleteAdvisor();
 	void deleteAccount(Account* acc);
 	void deleteTransaction(Account* account);
+	void addTransactionWithThread(Account* account);
 
 	string getAllDeposit(Account* account);
 	string getAllWithdrawal(Account* account);

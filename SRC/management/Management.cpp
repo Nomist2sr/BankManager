@@ -10,6 +10,8 @@
 
 using namespace std;
 
+mutex mute;
+
 //Implémentation de la classe Management
 
 //Implémentation constructeur par defaut
@@ -127,6 +129,16 @@ void Management::deleteAccount(Account* acc)
 void Management::deleteTransaction(Account* account)
 {
 	account->deleteLastOperation();
+}
+
+void Management::addTransactionWithThread(Account* account)
+{
+	//account->getHistoricalTransactionbis().push_back(trans);
+	mute.lock();
+	cout << "Thread" << endl;
+	account->setHistoricalTransaction(new Transaction("02/05/23", "Deposit", 50));
+	this_thread::sleep_for(chrono::seconds(2));
+	mute.unlock();
 }
 
 string Management::getAllDeposit(Account* account) {

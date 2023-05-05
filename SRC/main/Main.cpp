@@ -2,6 +2,23 @@
 #include <iostream>
 #include "Main.hpp"
 
+mutex mut;
+
+void addTransactionWithThread(Account* account, int rep)
+{
+    int cpt = 0;
+    for (size_t i = 0; i < 10; i++)
+    {
+        cpt++;
+        mut.lock();
+        account->setHistoricalTransaction(new Transaction("02/05/23", "Deposit", 50));
+        this_thread::sleep_for(chrono::seconds(rep));
+        cout << account->checkBalance();
+        mut.unlock();
+    }
+    cout << "Transactions added => " << cpt << endl;
+}
+
 int main(void) {
 
     // Création d'un client
@@ -18,12 +35,15 @@ int main(void) {
     management->addAccount(savingAccount);
     management->addAccount(standardAccount);
     // Ajout de transaction
+    thread th1(addTransactionWithThread, onlineAccount, 1);
+    /*
     management->addTransaction(onlineAccount, new Transaction("02/05/23", "Deposit", 50));
     management->addTransaction(onlineAccount, new Transaction("03/05/23", "Withdrawal", -150));
     management->addTransaction(savingAccount, new Transaction("02/05/23", "Deposit", 200));
     management->addTransaction(savingAccount, new Transaction("03/05/23", "Withdrawal", -50));
     management->addTransaction(standardAccount, new Transaction("02/05/23", "Deposit", 100));
     management->addTransaction(standardAccount, new Transaction("03/05/23", "Withdrawal", -250));
+    */
     // Affichage des informations du client
     cout << management->getCustomer()->displayInformation();
     // Affichage de la liste des comptes
@@ -33,14 +53,16 @@ int main(void) {
     cout << management->getAllWithdrawal(onlineAccount) << endl;
     cout << management->getCheckBalance(onlineAccount) << endl;
     cout << management->getCheckTransaction(onlineAccount) << endl;
+
+    th1.join();
     // Suppression d'un compte et de ses transactions
-    management->deleteAccount(onlineAccount);
+    // management->deleteAccount(onlineAccount);
     // Affichage de la liste des comptes
     cout << management->getAccounts() << endl;
     // Suppresion d'un utilisateur, de ses comptes et des transactions associées
     management->deleteCustomer();
     // Suppression du conseiller et du management
-    //delete advisor;
+    delete advisor;
     delete management;
     // Fin du programme
     cout << "End of program" << endl;
