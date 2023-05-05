@@ -25,6 +25,7 @@ public:
 	double getWithdrawal() const;
 	double getDeposit() const;
 	string getHistoricalTransaction();
+	vector<Transaction*> getHistoricalTransactionbis();
 	// Setter
 	void setCustomer(Actor* const customer);
 	void setAdviser(Actor* const adviser);

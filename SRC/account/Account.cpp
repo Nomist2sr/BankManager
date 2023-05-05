@@ -42,6 +42,11 @@ string Account::getHistoricalTransaction() {
 	return ss.str();
 }
 
+vector<Transaction*> Account::getHistoricalTransactionbis()
+{
+	return this->historicalTransaction;
+}
+
 // Setter
 void Account::setCustomer(Actor* const customer) {
 	this->customer = customer;

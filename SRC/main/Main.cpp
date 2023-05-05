@@ -1,24 +1,28 @@
 #include <string>
 #include <iostream>
+#include <memory>
+
 #include "Main.hpp"
 
 int main(void) {
     
     // Création d'un client
-    Actor* customer = new Customer("DOE", "John", "MyAdress");
-    // Création d'un conseiller
-    Actor* advisor = new Advisor("FREEZE", "Mister", "IceBank");
+    unique_ptr<Actor> customer = make_unique<Customer>("DOE", "John", "MyAdress");
+    unique_ptr<Actor> advisor = make_unique<Advisor>("FREEZE", "Mister", "IceBank");
     // Création de compte
-    Account* onlineAccount = new OnlineAccount(customer, advisor, 250);
-    Account* savingAccount = new SavingAccount(customer, advisor, 2000);
-    Account* standardAccount = new StandardAccount(customer, advisor, 400);
+    unique_ptr<Account> onlineAccount = make_unique<OnlineAccount>(customer.get(), advisor.get(), 3000);
+    unique_ptr<Account> savingAccount = make_unique<SavingAccount>(customer.get(), advisor.get(), 2000);
+    unique_ptr<Account> standardAccount = make_unique<StandardAccount>(customer.get(), advisor.get(), 400);
     // Création d'une gestion de compte
-    Management* management = new Management(customer, advisor);
-    management->addAccount(onlineAccount);
-    management->addAccount(savingAccount);
-    management->addAccount(standardAccount);
+    unique_ptr<Management> management = make_unique<Management>(customer.get(), advisor.get());
+    management->addAccount(onlineAccount.get());
+    management->addAccount(savingAccount.get());
+    management->addAccount(standardAccount.get());
     // Ajout de transaction
-    management->addTransaction(onlineAccount, new Transaction("02/05/23", "Deposit", 50));
+    unique_ptr<Transaction> transaction = make_unique<Transaction>("02/05/23", "Deposit", 50);
+    management->addTransaction(onlineAccount.get(), transaction.get());
+    cout << management->getCheckTransaction(onlineAccount.get()) << endl;
+    /*
     management->addTransaction(onlineAccount, new Transaction("03/05/23", "Withdrawal", -150));
     management->addTransaction(savingAccount, new Transaction("02/05/23", "Deposit", 200));
     management->addTransaction(savingAccount, new Transaction("03/05/23", "Withdrawal", -50));
@@ -42,8 +46,9 @@ int main(void) {
     // Suppression du conseiller et du management
     delete advisor;
     delete management;
+    */
     // Fin du programme
     cout << "End of program" << endl;
-
+    
     return (0);
 }

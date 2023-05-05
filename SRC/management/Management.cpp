@@ -111,7 +111,7 @@ void Management::addAccount(Account* acc)				//Ajout d'un compte dans le vecteur
 
 void Management::addTransaction(Account* account, Transaction* trans)		//Ajout d'une transaction dans le vecteur transactions
 {
-	account->setHistoricalTransaction(trans);
+	account->getHistoricalTransactionbis().push_back(trans);
 }
 
 void Management::deleteCustomer(Actor* cust)			//Suppression d'un client dans le vecteur customers
