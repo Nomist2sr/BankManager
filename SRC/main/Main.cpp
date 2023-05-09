@@ -1,25 +1,26 @@
 #include <string>
 #include <iostream>
+#include <future>
+
 #include "Main.hpp"
 
-mutex mut;
+std::mutex mut;
+int cpt = 0;
 
-void addTransactionWithThread(Account* account, int rep)
+void addTransactionWithThread(Account* account, int sleep, int *valide)
 {
-    int cpt = 0;
-    for (size_t i = 0; i < 10; i++)
-    {
-        cpt++;
+    while (*valide == 0) {
         mut.lock();
+        cpt++;
         account->setHistoricalTransaction(new Transaction("02/05/23", "Deposit", 50));
-        this_thread::sleep_for(chrono::seconds(rep));
-        cout << account->checkBalance();
         mut.unlock();
+        this_thread::sleep_for(chrono::seconds(sleep));
     }
-    cout << "Transactions added => " << cpt << endl;
 }
 
 int main(void) {
+
+    int valide(0);
 
     // Création d'un client
     Actor* customer = new Customer("DOE", "John", "MyAdress");
@@ -35,26 +36,32 @@ int main(void) {
     management->addAccount(savingAccount);
     management->addAccount(standardAccount);
     // Ajout de transaction
-    thread th1(addTransactionWithThread, onlineAccount, 1);
-    /*
     management->addTransaction(onlineAccount, new Transaction("02/05/23", "Deposit", 50));
     management->addTransaction(onlineAccount, new Transaction("03/05/23", "Withdrawal", -150));
     management->addTransaction(savingAccount, new Transaction("02/05/23", "Deposit", 200));
     management->addTransaction(savingAccount, new Transaction("03/05/23", "Withdrawal", -50));
     management->addTransaction(standardAccount, new Transaction("02/05/23", "Deposit", 100));
     management->addTransaction(standardAccount, new Transaction("03/05/23", "Withdrawal", -250));
-    */
+    // Ajout transaction récurrente
+    thread th1(addTransactionWithThread, onlineAccount, 1, &valide);
+    thread th2(addTransactionWithThread, savingAccount, 1, &valide);
     // Affichage des informations du client
     cout << management->getCustomer()->displayInformation();
     // Affichage de la liste des comptes
     cout << management->getAccounts() << endl;
+    // On stoppe la récurrence
+    while (valide == 0) {
+        cout << "Stop rec" << endl;
+        cin >> valide;
+    }
+    th1.join();
+    th2.join();
     // Affichage des informations pour un compte
     cout << management->getAllDeposit(onlineAccount) << endl;
     cout << management->getAllWithdrawal(onlineAccount) << endl;
     cout << management->getCheckBalance(onlineAccount) << endl;
     cout << management->getCheckTransaction(onlineAccount) << endl;
 
-    th1.join();
     // Suppression d'un compte et de ses transactions
     // management->deleteAccount(onlineAccount);
     // Affichage de la liste des comptes
@@ -64,6 +71,7 @@ int main(void) {
     // Suppression du conseiller et du management
     delete advisor;
     delete management;
+
     // Fin du programme
     cout << "End of program" << endl;
 
